@@ -16,14 +16,8 @@
   removeRtlRule ? true,
   exposeApis ? true,
   disableUpgradeCheck ? true,
-  fastUserSwitching ? false,
-  visualizationHighFramerate ? false,
-  radio ? false,
-  songPage ? false,
   experimentalFeatures ? false,
-  home ? false,
-  lyricAlwaysShow ? false,
-  lyricForceNoSync ? false
+  home ? false
 }:
 
 let
@@ -105,14 +99,7 @@ pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
       remove_rtl_rule ${boolToString removeRtlRule } \
       expose_apis ${boolToString exposeApis } \
       disable_upgrade_check ${boolToString disableUpgradeCheck } \
-      fastUser_switching ${boolToString fastUserSwitching } \
-      visualization_high_framerate ${boolToString visualizationHighFramerate } \
-      radio ${boolToString radio } \
-      song_page ${boolToString songPage } \
-      experimental_features ${boolToString experimentalFeatures } \
-      home ${boolToString home } \
-      lyric_always_show ${boolToString lyricAlwaysShow } \
-      lyric_force_no_sync ${boolToString lyricForceNoSync }
+      home_config ${boolToString home } \
 
     ${spicetify} backup apply
 
