@@ -4,7 +4,7 @@ in
   pkgs.fetchFromGitHub {
     owner = "morpheusthewhite";
     repo = "spicetify-themes";
-    rev = "fc2be2025a835025249574f15c9fe6156ff5700a";
-    sha256 = "1w117lv3xbpmn6vvwwl6ww3yzl7v7bbx51h0k4hj8b6h6fw6kh27";
+    rev = "ad3049d1c6bfa90268d09c201f61e5d57561949c";
+    sha256 = "0r31ms4y9l5d5jwbx1rdhln3gy2ac3g9pvvmb2cg27lngf2cnr8h";
     fetchSubmodules = true;
   }
