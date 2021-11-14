@@ -54,15 +54,14 @@ let
   customAppsString = pipeConcat enabledCustomApps;
 in
 pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
+  name = "spotify";
   postInstall=''
     touch $out/prefs
-    mkdir Themes
-    mkdir Extensions
-    mkdir CustomApps
+    mkdir Themes Extensions CustomApps
 
     find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
     ${extraCommands}
-    
+
     ${spicetify} config \
       spotify_path "$out/share/spotify" \
       prefs_path "$out/prefs" \
