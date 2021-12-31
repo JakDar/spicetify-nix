@@ -62,9 +62,14 @@ pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
     find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
     ${extraCommands}
 
+    cat >> "config-xpui.ini" << EOF
+    [Setting]
+    spotify_path            = $out/share/spotify
+    prefs_path              = $out/prefs
+    check_spicetify_upgrade = 0
+    EOF
+
     ${spicetify} config \
-      spotify_path "$out/share/spotify" \
-      prefs_path "$out/prefs" \
       current_theme ${theme} \
       ${if 
           colorScheme != ""
