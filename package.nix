@@ -1,6 +1,6 @@
 { 
   pkgs ? import <nixpkgs> {},
-  theme ? "SpicetifyDefault",
+  theme ? "Default",
   colorScheme ? "",
   thirdParyThemes ? {},
   thirdParyExtensions ? {},
@@ -31,8 +31,8 @@ let
   makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
 
   # Setup spicetify
-  spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
-  spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
+  spicetifyPkg = pkgs.spicetify-cli;
+  spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/bin/spicetify-cli";
 
   themes = import ./themes-src.nix;
 
