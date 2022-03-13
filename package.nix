@@ -1,6 +1,6 @@
 { 
   pkgs ? import <nixpkgs> {},
-  theme ? "SpicetifyDefault",
+  theme ? "Default",
   colorScheme ? "",
   thirdParyThemes ? {},
   thirdParyExtensions ? {},
@@ -31,8 +31,7 @@ let
   makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
 
   # Setup spicetify
-  spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
-  spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
+  spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
 
   themes = import ./themes-src.nix;
 
@@ -68,6 +67,7 @@ pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
     prefs_path              = $out/prefs
     check_spicetify_upgrade = 0
     EOF
+
 
     ${spicetify} config \
       current_theme ${theme} \
