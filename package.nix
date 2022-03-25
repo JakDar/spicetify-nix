@@ -1,6 +1,6 @@
 { 
   pkgs ? import <nixpkgs> {},
-  theme ? "SpicetifyDefault",
+  theme ? "Default",
   colorScheme ? "",
   thirdParyThemes ? {},
   thirdParyExtensions ? {},
@@ -32,7 +32,7 @@ let
 
   # Setup spicetify
   spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
-  spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
+  spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/bin/spicetify-cli";
 
   themes = import ./themes-src.nix;
 
