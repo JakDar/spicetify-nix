@@ -35,6 +35,12 @@ let
   spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
   spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/bin/spicetify-cli";
 
+  spicetifyRepo = pkgs.fetchFromGitHub {
+    owner = "spicetify";
+    repo = "spicetify-cli";
+    rev = "bff9c7c294069c220d01ffdaba1ddfddee7bcf34";
+    sha256 = "sha256-xhHYhkJtCQ5ZWNwUbehcKdvmSqKyp09C6O4I9TyJF20=";
+  };
   themes = import ./themes-src.nix;
 
   # Dribblish is a theme which needs a couple extra settings
@@ -58,7 +64,10 @@ pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
   name = "spotify";
   postInstall=''
     touch $out/prefs
+
     mkdir Themes Extensions CustomApps
+    cp -r ${spicetifyRepo}/Extensions/* ./Extensions/
+    cp -r ${spicetifyRepo}/CustomApps/* ./CustomApps/
 
     find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
     ${extraCommands}

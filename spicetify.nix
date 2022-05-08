@@ -6,7 +6,7 @@ buildGoModule rec {
   version = "2.9.8";
 
   src = fetchFromGitHub {
-    owner = "khanhas";
+    owner = "spicetify";
     repo = pname;
     rev = "v${version}";
     sha256 = "sha256-juqQuoN8jcklgobp/dTI6OzbdpDWThn/xyYBAY5QtSU=";
