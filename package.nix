@@ -17,7 +17,8 @@
   exposeApis ? true,
   disableUpgradeCheck ? true,
   experimentalFeatures ? false,
-  home ? false
+  homeConfig ? false,
+  sidebarConfig ? false
 }:
 
 let
@@ -103,7 +104,9 @@ pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
       remove_rtl_rule ${boolToString removeRtlRule } \
       expose_apis ${boolToString exposeApis } \
       disable_upgrade_check ${boolToString disableUpgradeCheck } \
-      home_config ${boolToString home } \
+      home_config ${boolToString homeConfig } \
+      sidebar_config ${boolToString sidebarConfig } \
+      experimental_features ${boolToString experimentalFeatures}
 
     ${spicetify} backup apply
 
