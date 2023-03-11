@@ -4,7 +4,7 @@ in
   pkgs.fetchFromGitHub {
     owner = "spicetify";
     repo = "spicetify-themes";
-    rev = "eb6b818368d9c01ef92522623b37aa29200d0bc0";
-    sha256 = "Q/LBS+bjt2WP/s43LE8hDjYHxPVorT/RA71esPraLOM=";
+    rev = "a547f3d28cac8122d5a1c9f5e7f64f44b48a9280";
+    sha256 = "sha256-87afREB/TLqs4rObsDPG/PaM5A5keB3GbXTATWcqMN0=";
   }
 
