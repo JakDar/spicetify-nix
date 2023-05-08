@@ -38,8 +38,9 @@ let
   spicetifyRepo = pkgs.fetchFromGitHub {
     owner = "spicetify";
     repo = "spicetify-cli";
-    rev = "bff9c7c294069c220d01ffdaba1ddfddee7bcf34";
-    sha256 = "sha256-xhHYhkJtCQ5ZWNwUbehcKdvmSqKyp09C6O4I9TyJF20=";
+    rev = "88c8aa8ad93b4e6790651ec9d54f0f9aa0a176fc";
+    # sha256 = pkgs.lib.fakeSha256;
+    sha256 = "sha256-k9fbChpHy997Mj+U9n/iiSGDdsHZ22AoYUkCHUMGfbo=";
   };
   themes = import ./themes-src.nix;
 
